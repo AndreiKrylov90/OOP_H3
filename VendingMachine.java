@@ -1,10 +1,11 @@
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public interface VendingMachine {
-    public void putHotProduct(LinkedList<HotDrink> item);
+    public void putHotProduct(ArrayList<HotDrink> item);
 
-    public HotDrink getHotProduct();
+    
 
-    public HotDrink getHotProduct(String a, int b, int c);
+    public HotDrink getHotProduct(String a, Long b, int c);
 
 }

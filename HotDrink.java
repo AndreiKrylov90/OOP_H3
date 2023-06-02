@@ -1,4 +1,4 @@
-public class HotDrink extends Products {
+public class HotDrink extends Products implements Comparable<HotDrink> {
 
     private int temperature;
 
@@ -7,7 +7,7 @@ public class HotDrink extends Products {
         return super.name;
     }
 
-    public HotDrink(String name, int volume, int temperature) {
+    public HotDrink(String name, Long volume, int temperature) {
         super.name = name;
         super.volume = volume;
         this.temperature = temperature;
@@ -18,7 +18,7 @@ public class HotDrink extends Products {
         return "HotDrink{" +
                 "name='" + name + '\'' +
                 ", volume=" + volume + '\'' +
-                ", volume=" + temperature +
+                ", temperature=" + temperature +
                 '}';
     }
 
@@ -28,12 +28,12 @@ public class HotDrink extends Products {
     }
 
     @Override
-    public int getVolume() {
+    public Long getVolume() {
         return super.volume;
     }
 
     @Override
-    public void setVolume(int volume) {
+    public void setVolume(Long volume) {
         super.volume = volume;
     }
 
@@ -43,6 +43,16 @@ public class HotDrink extends Products {
 
     public void setTemperature(int temperature) {
         this.temperature = temperature;
+    }
+
+    @Override
+    public int compareTo(HotDrink o) {
+        if (this.volume > o.volume)
+            return 1;
+        else if (this.volume < o.volume)
+            return -1;
+        else
+            return 0;
     }
 
 }

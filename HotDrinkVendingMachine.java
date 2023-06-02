@@ -1,17 +1,18 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 
 public class HotDrinkVendingMachine implements VendingMachine {
 
-    private LinkedList<HotDrink> hotdrinks;
+    private ArrayList<HotDrink> hotdrinks;
 
     @Override
-    public void putHotProduct(LinkedList<HotDrink> item) {
+    public void putHotProduct(ArrayList<HotDrink> item) {
         this.hotdrinks = item;
     }
 
     @Override
-    public HotDrink getHotProduct(String a, int b, int c) {
+    public HotDrink getHotProduct(String a, Long b, int c) {
         for (HotDrink hotDrink : hotdrinks) {
             if (hotDrink.getName().equals(a)) {
                 if (hotDrink.getVolume() == b) {
@@ -26,15 +27,13 @@ public class HotDrinkVendingMachine implements VendingMachine {
 
     }
 
-    @Override
-    public HotDrink getHotProduct() {
-        return hotdrinks.pollLast();
-    }
+    
 
     @Override
     public String toString() {
 
         return Arrays.toString(hotdrinks.toArray());
     }
+
 
 }
